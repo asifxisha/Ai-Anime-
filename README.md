@@ -14,7 +14,7 @@
 
 Visit the website here:  
 **[https://aianime.github.io/Ai/](https://aianime.github.io/Ai/)**  
-(*Replace `yourusername` with your actual GitHub username*)
+(*Replace `aianime` with your actual GitHub aianime*)
 
 ## Creator
 
