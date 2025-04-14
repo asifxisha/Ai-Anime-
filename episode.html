@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Episodes</title>
+  <style>
+    body { background: #121212; color: white; font-family: Arial; padding: 20px; }
+    h1 { text-align: center; color: #ff9800; }
+    ul { list-style: none; padding: 0; }
+    li { background: #1e1e1e; margin: 10px 0; padding: 15px; border-radius: 8px; }
+    a { color: #4caf50; text-decoration: none; }
+    iframe { width: 100%; height: 500px; border: none; border-radius: 8px; }
+  </style>
+</head>
+<body>
+
+<h1 id="animeTitle">Episodes</h1>
+<ul id="episodeList"></ul>
+
+<script>
+  const episodes = {
+    solo: { title: "Solo Leveling", epList: [ { name: "Episode 1", link: "https://drive.google.com/file/d/1THvXwBfd7htYHTKL1Pp1TquQdYPQSUlf/preview" },
+      { name: "Episode 2", link: "https://drive.google.com/file/d/1TDjHfd082la6c2VhWcbfzOAWX1CfDZ1U/preview" },
+      { name: "Episode 3", link: "https://drive.google.com/file/d/1TE1IvCzF8anidYATmZqO1T_pHdOyDsM5/preview" },
+      { name: "Episode 4", link: "https://drive.google.com/file/d/1T8BMoL8pqhfIY4aiZLa1oORNS518Bat9/preview" },
+      { name: "Episode 5", link: "https://drive.google.com/file/d/1T7y9ETuCfiFucOeC4i3zcIQIGXvI12-S/preview" },
+      { name: "Episode 6", link: "https://drive.google.com/file/d/1T4Y6x-p1Uk6X1QjJEaPlIyb_NIvtEsxd/preview" },
+      { name: "Episode 7", link: "https://drive.google.com/file/d/1T0xPdEFQU60gzV8AQIZEeYU6bEi-gvkX/preview" },
+      { name: "Episode 8", link: "https://drive.google.com/file/d/1SzwcOW0BL0pidCWvs8L-xU5hTsSbTYqt/preview" },
+      { name: "Episode 9", link: "https://drive.google.com/file/d/1SvugJCNXbW62dvEegEgZXuo1vekUb9m_/preview" },
+      { name: "Episode 10", link: "https://drive.google.com/file/d/1SjfEDbMWY3Qgiitxxzbc7izfynfDuNfw/preview" },
+      { name: "Episode 11", link: "https://drive.google.com/file/d/1SiGVhvqFQ4OfRVAZFfur-rAfq8_yKMIW/preview" },
+      { name: "Episode 12", link: "https://drive.google.com/file/d/1DhX1K87qnbb8C8Yd7_wgxhxa_jkOkbXY/preview" } ] },
+    shield: { title: "Shield Hero", epList: [ { name: "Episode 1", link: "https://drive.google.com/file/d/1DhX1K87qnbb8C8Yd7_wgxhxa_jkOkbXY/preview" } ] },
+    naruto: { title: "Naruto", epList: [ { name: "Episode 1", link: "https://drive.google.com/file/d/1DhX1K87qnbb8C8Yd7_wgxhxa_jkOkbXY/preview" }, { name: "Episode 2", link: "https://drive.google.com/file/d/1DhX1K87qnbb8C8Yd7_wgxhxa_jkOkbXY/preview" } ] },
+    demonslayer: { title: "Demon Slayer", epList: [ { name: "Episode 1", link: "https://drive.google.com/file/d/1DhX1K87qnbb8C8Yd7_wgxhxa_jkOkbXY/preview" } ] },
+    aot: { title: "Attack on Titan", epList: [ { name: "Episode 1", link: "https://drive.google.com/file/d/1DhX1K87qnbb8C8Yd7_wgxhxa_jkOkbXY/preview" } ] },
+    deathnote: { title: "Death Note", epList: [ { name: "Episode 1", link: "https://drive.google.com/file/d/1DhX1K87qnbb8C8Yd7_wgxhxa_jkOkbXY/preview" } ] },
+    opm: { title: "One Punch Man", epList: [ { name: "Episode 1", link: "https://drive.google.com/file/d/1DhX1K87qnbb8C8Yd7_wgxhxa_jkOkbXY/preview" } ] },
+    tokyo: { title: "Tokyo Ghoul", epList: [ { name: "Episode 1", link: "https://drive.google.com/file/d/1DhX1K87qnbb8C8Yd7_wgxhxa_jkOkbXY/preview" } ] },
+    dbz: { title: "Dragon Ball Z", epList: [ { name: "Episode 1", link: "https://drive.google.com/file/d/1DhX1K87qnbb8C8Yd7_wgxhxa_jkOkbXY/preview" } ] },
+    mha: { title: "My Hero Academia", epList: [ { name: "Episode 1", link: "https://drive.google.com/file/d/1DhX1K87qnbb8C8Yd7_wgxhxa_jkOkbXY/preview" } ] },
+    blackclover: { title: "Black Clover", epList: [ { name: "Episode 1", link: "https://drive.google.com/file/d/1DhX1K87qnbb8C8Yd7_wgxhxa_jkOkbXY/preview" } ] },
+    bleach: { title: "Bleach", epList: [ { name: "Episode 1", link: "https://drive.google.com/file/d/1DhX1K87qnbb8C8Yd7_wgxhxa_jkOkbXY/preview" } ] },
+    boruto: { title: "Boruto", epList: [ { name: "Episode 1", link: "https://drive.google.com/file/d/1DhX1K87qnbb8C8Yd7_wgxhxa_jkOkbXY/preview" } ] },
+    jujutsu: { title: "Jujutsu Kaisen", epList: [ { name: "Episode 1", link: "https://drive.google.com/file/d/1DhX1K87qnbb8C8Yd7_wgxhxa_jkOkbXY/preview" } ] },
+    chainsaw: { title: "Chainsaw Man", epList: [ { name: "Episode 1", link: "https://drive.google.com/file/d/1DhX1K87qnbb8C8Yd7_wgxhxa_jkOkbXY/preview" } ] },
+    sao: { title: "Sword Art Online", epList: [ { name: "Episode 1", link: "https://drive.google.com/file/d/1DhX1K87qnbb8C8Yd7_wgxhxa_jkOkbXY/preview" } ] },
+    hxh: { title: "Hunter x Hunter", epList: [ { name: "Episode 1", link: "https://drive.google.com/file/d/1DhX1K87qnbb8C8Yd7_wgxhxa_jkOkbXY/preview" } ] },
+    fma: { title: "Fullmetal Alchemist", epList: [ { name: "Episode 1", link: "https://drive.google.com/file/d/1DhX1K87qnbb8C8Yd7_wgxhxa_jkOkbXY/preview" } ] },
+    fairytail: { title: "Fairy Tail", epList: [ { name: "Episode 1", link: "https://drive.google.com/file/d/1DhX1K87qnbb8C8Yd7_wgxhxa_jkOkbXY/preview" } ] },
+    onepiece: { title: "One Piece", epList: [ { name: "Episode 1", link: "https://drive.google.com/file/d/1DhX1K87qnbb8C8Yd7_wgxhxa_jkOkbXY/preview" } ] }
+  };
+
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+
+  const data = episodes[id];
+
+  if (data) {
+    document.getElementById("animeTitle").innerText = data.title;
+    const ul = document.getElementById("episodeList");
+    data.epList.forEach(ep => {
+      const li = document.createElement("li");
+      li.innerHTML = `<iframe src="${ep.link}" frameborder="0" allow="autoplay"></iframe>`;
+      ul.appendChild(li);
+    });
+  } else {
+    document.body.innerHTML = "<h2 style='text-align:center'>Anime not found</h2>";
+  }
+</script>
+
+</body>
+</html>
